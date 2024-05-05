@@ -1,6 +1,15 @@
+
+  body
+  {
+    background-color: #4A4848;
+    color:white;
+  }
+  /* Style pour la navbar */
+  
   .navbar {
     background-color: #2b2c2c;
     box-shadow: 0px 0px 10px red;
+    margin-bottom: 5%;
   }
 
   /* Brand styling */
@@ -65,4 +74,38 @@
 
   .navbar-nav .nav-link.dropdown-toggle::after {
     display: none;
+  }
+
+  /* Style pour la page d'inscription */
+  .custom-form {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .custom-form h2 {
+    margin-bottom: 30px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-control {
+    background-color: #444;
+    color: white;
+    border: 2px solid transparent;
+  }
+  .form-control:focus {
+    background-color: #444;
+    color: white;
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+  }
+  .btn-primary {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    width: 100%; /* Largeur du bouton sur toute la largeur du container */
+  }
+  .btn-primary:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
   }
