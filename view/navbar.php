@@ -20,16 +20,15 @@
         </li>
       </ul>
       <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Nom Utilisateur Connecté 
-          <i class="bi bi-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Mon profil</a></li>
-            <li><a class="dropdown-item" href="#">Déconnexion</a></li>
-          </ul>
-        </li>
+      <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <?=$_SESSION['username'];?> <i class="bi bi-chevron-down"></i>
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+    <li><a class="dropdown-item" href="index.php?ctl=user&action=profilUser">Mon profil</a></li>
+    <li><a class="dropdown-item" href="index.php?ctl=user&action=deconnect">Déconnexion</a></li>
+  </ul>
+</li>
       </ul>
     </div>
   </div>

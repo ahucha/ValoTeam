@@ -3,33 +3,35 @@ session_start();
 
 include 'view/header.php';
 
-// Vérifier si une action spécifique est demandée (comme l'inscription)
-if(isset($_GET['ctl'])) 
-{
-    // Si c'est le cas, inclure le contrôleur correspondant
-    include 'controller/ctl_user.php'; // Supposons que vous avez un contrôleur pour l'inscription
+// Vérifier si une action spécifique est demandée pour l'utilisateur
+if(isset($_GET['ctl']) && $_GET['ctl'] == 'user') {
+    // Inclure le contrôleur utilisateur
+    include 'controller/ctl_user.php';
 } 
 else 
 {
-    // Sinon, vérifier si l'utilisateur est connecté
-    if (!isset($_SESSION['user_id'])) {
+    // Vérifier si l'utilisateur est connecté
+    if (!isset($_SESSION["id_user"])) 
+    {
         // Si l'utilisateur n'est pas connecté, inclure la page de connexion
         include "view/view_user/login.php";
     } 
-    else {
-        // Si l'utilisateur est connecté, incluez le contrôleur approprié en fonction de la demande
+    else
+    {
+        // Si l'utilisateur est connecté, inclure la navbar
         include 'view/navbar.php';
+
+        // Vérifier s'il y a une action spécifique demandée
         if(isset($_GET['ctl'])) {
             switch($_GET['ctl']) {
-                case 'user':
-                    include 'controller/ctl_user.php';
-                    break;
                 case 'annonce':
+                    // Inclure le contrôleur des annonces
                     include 'controller/ctl_annonce.php';
                     break;
                 // Ajoutez d'autres cas si nécessaire
                 default:
-                    // Cas par défaut : inclure une page de contenu ou afficher un message d'erreur
+                    // Inclure un contrôleur par défaut
+                    include 'controller/ctl_annonce.php';
                     break;
             }
         }
