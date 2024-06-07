@@ -30,7 +30,7 @@ switch($action)
     case 'supprimerReservation':
         $id_reservation = $_POST['id_reservation'];
         DbReservation::supprimerReservation($id_reservation);
-        header("Location: index.php?action=reservation&ctl=mesReservations");
+        header("Location: index.php?ctl=reservation&action=mesReservations");
         exit();
 
     case 'desinscrireReservation':
