@@ -71,7 +71,7 @@
                                 <?php else: ?>
                                     <h5 class="text-white text-center">Demandes de réservation pour cette annonce</h5>
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered">
+                                        <table class="table table-striped table-dark table-responsive">
                                             <thead class="table-dark">
                                                 <tr>
                                                     <th scope="col">Pseudo Valorant</th>
