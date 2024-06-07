@@ -1,5 +1,5 @@
 <div class="container">
-<div class="text-center mb-4">
+  <div class="text-center mb-4">
     <img src="view/images/logo_valoteam.png" alt="Logo_ValoTeam" width="100">
   </div>
   <div class="row justify-content-center">
@@ -20,7 +20,7 @@
             <input type="password" class="form-control" name="password" id="password" placeholder="Entrez votre mot de passe" required>
           </div>
           <div class="text-center">
-            <button type="submit" class="btn btn-primary">S'inscrire</button>
+            <button type="submit" class="btn btn-danger" style="width:100%;">S'inscrire</button>
           </div>
           <p class="text-center mt-3">Déjà membre ? <a href="index.php?ctl=user&action=login">Se connecter</a></p>
         </form>
@@ -28,7 +28,7 @@
             if(isset($_GET['msg_erreur']))
             {
               echo "<hr>";
-              echo "<p style='color: red; text-align: center;'>".$_GET['msg_erreur']."</p>";
+              echo "<p style='color: red; text-align: center;'>".htmlspecialchars($_GET['msg_erreur'])."</p>";
             }
         ?>
       </div>

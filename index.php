@@ -1,39 +1,33 @@
 <?php
+date_default_timezone_set('Europe/Paris');
 session_start();
 
-include 'view/header.php';
+require_once 'view/header.php';
 
-// Inclure la navbar si l'utilisateur est connecté
-if (isset($_SESSION["id_user"]))
-{
-    include 'view/navbar.php';
+if (isset($_SESSION["id_user"])) {
+    require_once 'view/navbar.php';
 }
 
-// Vérifier si une action spécifique est demandée
-if(isset($_GET['ctl'])) 
-{
-    switch($_GET['ctl']) 
-    {
+if (isset($_GET['ctl'])) {
+    switch ($_GET['ctl']) {
         case 'user':
-            include 'controller/ctl_user.php';
+            require_once 'controller/ctl_user.php';
             break;
         case 'annonce':
-            include 'controller/ctl_annonce.php';
+            require_once 'controller/ctl_annonce.php';
             break;
-        // Ajoutez d'autres cas si nécessaire
+        case 'reservation':
+            require_once 'controller/ctl_reservation.php';
+            break;
         default:
-            include 'controller/ctl_annonce.php';
+            require_once 'controller/ctl_annonce.php';
             break;
     }
-}
-else
-{
-    // Si aucun contrôleur n'est spécifié, inclure la page de connexion si l'utilisateur n'est pas connecté
-    if (!isset($_SESSION["id_user"]))
-    {
-        include "view/view_user/login.php";
+} else {
+    if (!isset($_SESSION["id_user"])) {
+        require_once "view/view_user/login.php";
     }
 }
 
-include 'view/footer.php';
+require_once 'view/footer.php';
 ?>

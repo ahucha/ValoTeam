@@ -1,110 +1,262 @@
+body {
+  background-color: #4A4848;
+  color: white;
+}
 
-  body
-  {
-    background-color: #4A4848;
-    color:white;
-  }
-  /* Style pour la navbar */
-  
-  .navbar {
-    background-color: #2b2c2c;
-    box-shadow: 0px 0px 10px red;
-  }
+.navbar {
+  background-color: #2b2c2c;
+  box-shadow: 0px 0px 10px red;
+}
 
-  /* Brand styling */
-  .navbar-brand {
-    color: white;
-    font-weight: bold;
-  }
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+}
 
-  .navbar-brand img {
-    margin-right: 10px; /* Espacement entre le logo et le texte */
-    margin-top: -5px; /* Ajustement de la marge supérieure pour remonter le logo */
-  }
+.navbar-brand img {
+  margin-right: 10px;
+  margin-top: -5px;
+}
 
-  .navbar-brand:hover {
-    color: red;
-  }
+.navbar-brand:hover {
+  color: red;
+}
 
-  /* Links styling */
-  .navbar-nav .nav-link {
-    color: white;
-    font-weight: bold;
-    position: relative; /* Pour positionner la ligne de soulignement */
-  }
+.navbar-nav .nav-link {
+  color: white;
+  font-weight: bold;
+  position: relative;
+}
 
-  .navbar-nav .nav-link::after {
-    content: '';
-    position: absolute;
-    bottom: -2px; /* Ajuster la position verticale de la ligne de soulignement */
-    left: 0;
-    width: 100%;
-    height: 2px; /* Épaisseur de la ligne de soulignement */
-    background-color: red; /* Couleur de la ligne de soulignement */
-    visibility: hidden; /* Masquer initialement la ligne de soulignement */
-    transform: scaleX(0); /* Réduire la largeur de la ligne de soulignement */
-    transition: all 0.3s ease-in-out; /* Animation de transition */
-  }
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
 
-  .navbar-nav .nav-link:hover::after {
-    visibility: visible; /* Afficher la ligne de soulignement au survol */
-    transform: scaleX(1); /* Étirer la ligne de soulignement */
-  }
+.navbar-nav .nav-link:hover::after {
+  visibility: visible;
+  transform: scaleX(1);
+}
 
-  .navbar-nav .nav-link:hover {
-    color: red; /* Changement de couleur en rouge */
-  }
+.navbar-nav .nav-link:hover {
+  color: red;
+}
 
-  /* User dropdown styling */
-  .dropdown-menu {
-    background-color: #2b2c2c; /* Noir plus mat */
-    border: 2px solid red;
-    border-radius: 10px;
-  }
+.dropdown-menu {
+  background-color: #2b2c2c;
+  border: 2px solid red;
+  border-radius: 10px;
+}
 
-  .dropdown-item {
-    color: white;
-  }
+.dropdown-item {
+  color: white;
+}
 
-  .dropdown-item:hover {
-    color: red;
-    background-color: rgba(255, 0, 0, 0.1);
-  }
+.dropdown-item:hover {
+  color: red;
+  background-color: rgba(255, 0, 0, 0.1);
+}
 
-  .navbar-nav .nav-link.dropdown-toggle::after {
-    display: none;
-  }
+.navbar-nav .nav-link.dropdown-toggle::after {
+  display: none;
+}
 
-  /* Style pour la page d'inscription */
-  .custom-form {
-    background-color: #333;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  .custom-form h2 {
-    margin-bottom: 30px;
-  }
-  .form-group {
-    margin-bottom: 20px;
-  }
-  .form-control {
-    background-color: #444;
-    color: white;
-    border: 2px solid transparent;
-  }
-  .form-control:focus {
-    background-color: #444;
-    color: white;
-    border-color: #dc3545;
-    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-  }
-  .btn-primary {
-    background-color: #dc3545;
-    border-color: #dc3545;
-    width: 100%; /* Largeur du bouton sur toute la largeur du container */
-  }
-  .btn-primary:hover {
-    background-color: #c82333;
-    border-color: #bd2130;
-  }
+/* Style pour la page d'inscription */
+.custom-form {
+  background-color: #333;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-form h2 {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  background-color: #444;
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  font-size: .825rem;
+}
+
+.card {
+  margin-top: 5%;
+  background: #2b2c2c;
+  border-radius: 5px;
+  border: 0;
+  margin-bottom: 1rem;
+}
+
+/* Styles spécifiques au formulaire Annonce */
+.custom-form-annonce {
+  background-color: #333;
+  border-radius: 10px;
+  padding: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-form-annonce h1 {
+  margin-bottom: 30px;
+}
+
+.custom-form-annonce .form-control,
+.custom-form-annonce .form-select {
+  background-color: #444;
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 5px;
+}
+
+.custom-form-annonce .form-control::placeholder,
+.custom-form-annonce .form-select::placeholder {
+  color: #ccc;
+}
+
+.custom-form-annonce .btn-primary {
+  background-color: red;
+  border: none;
+}
+
+.custom-form-annonce .btn-primary:hover {
+  background-color: darkred;
+}
+
+.custom-card-annonce {
+  background-color: #2b2c2c;
+  color: white;
+  border-radius: 10px;
+}
+
+.custom-card-annonce .card-title {
+  color: white;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.custom-card-annonce .card-text {
+  color: white;
+}
+
+.custom-card-annonce .btn-danger,
+.custom-card-annonce .btn-warning,
+.custom-card-annonce .btn-primary {
+  background-color: red;
+  border: none;
+  color: white;
+}
+
+.custom-card-annonce .btn-danger:hover,
+.custom-card-annonce .btn-warning:hover,
+.custom-card-annonce .btn-primary:hover {
+  background-color: darkred;
+}
+
+.custom-card-annonce .btn-warning {
+  background-color: orange;
+}
+
+.custom-card-annonce .btn-warning:hover {
+  background-color: darkorange;
+}
+
+.card-text.bg-secondary {
+  background-color: #444;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.no-annonces-message {
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Styles pour le texte du modal */
+.modal-body-text {
+  color: white;
+}
+
+/* Styles pour les modals */
+.modal-content {
+  background-color: #2b2c2c;
+  color: white;
+}
+
+.modal-content .modal-header,
+.modal-content .modal-body,
+.modal-content .modal-footer {
+  border-color: #444;
+}
+
+.modal-content .btn-close {
+  filter: invert(1);
+}
+
+.modal-content .btn-secondary {
+  background-color: #444;
+  border: none;
+  color: white;
+}
+
+.modal-content .btn-secondary:hover {
+  background-color: #555;
+}
+
+.modal-content .btn-warning,
+.modal-content .btn-danger {
+  color: white;
+}
+
+.modal-content .btn-warning {
+  background-color: orange;
+}
+
+.modal-content .btn-warning:hover {
+  background-color: darkorange;
+}
+
+.modal-content .btn-danger {
+  background-color: red;
+}
+
+.modal-content .btn-danger:hover {
+  background-color: darkred;
+}
+
+/* Champs de formulaire en blanc */
+.modal-content input[type="text"],
+.modal-content input[type="date"],
+.modal-content input[type="time"],
+.modal-content input[type="number"],
+.modal-content textarea,
+.modal-content select {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 0.5em;
+  border-radius: 5px;
+}
+
+.modal-content input[type="text"]::placeholder,
+.modal-content input[type="date"]::placeholder,
+.modal-content input[type="time"]::placeholder,
+.modal-content input[type="number"]::placeholder,
+.modal-content textarea::placeholder,
+.modal-content select::placeholder {
+  color: #ccc;
+}
