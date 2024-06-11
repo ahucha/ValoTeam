@@ -13,25 +13,37 @@ switch($action)
         include 'view/view_user/login.php';
         break;
     
-    case 'validRegister':
-        $username = $_POST['username'];
-        $email= $_POST['email'];
-        $password= $_POST['password'];
-
-        if (DbUser::isUsernameTaken($username))
-        {
-            header('Location: index.php?ctl=user&action=register&msg_erreur=Nom d\'utilisateur déjà utilisé');
-            exit();
-        }
+        case 'validRegister':
+            $username = $_POST['username'];
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $confirm_password = $_POST['confirm_password'];
         
-        if (DbUser::isEmailTaken($email))
-        {
-            header('Location: index.php?ctl=user&action=register&msg_erreur=Email déjà utilisé');
-            exit();
-        }
-        DbUser::validAjout($username, $email, $password);
-        header('Location: index.php?ctl=user&action=login&msg_valid=Inscription validée, veuillez vous connecter');
-        break;
+            if ($password !== $confirm_password) {
+                header('Location: index.php?ctl=user&action=register&msg_erreur=Les mots de passe ne correspondent pas');
+                exit();
+            }
+        
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !preg_match("/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/", $email)) {
+                header('Location: index.php?ctl=user&action=register&msg_erreur=Format d\'email invalide');
+                exit();
+            }
+        
+            if (DbUser::isUsernameTaken($username)) {
+                header('Location: index.php?ctl=user&action=register&msg_erreur=Nom d\'utilisateur déjà utilisé');
+                exit();
+            }
+        
+            if (DbUser::isEmailTaken($email)) {
+                header('Location: index.php?ctl=user&action=register&msg_erreur=Email déjà utilisé');
+                exit();
+            }
+        
+            DbUser::validAjout($username, $email, $password);
+            header('Location: index.php?ctl=user&action=login&msg_valid=Inscription validée, veuillez vous connecter');
+            break;
+        
+        
 
     case 'validLogin':
         if(isset($_POST['username']) && isset($_POST['password']))

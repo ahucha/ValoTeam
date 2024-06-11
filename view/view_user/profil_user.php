@@ -2,31 +2,31 @@
 if(isset($infoUser)) {
     foreach($infoUser as $user)
     {
-        $username =  htmlspecialchars($user['username']);
-        $email =  htmlspecialchars($user['email']);
-        $name_valo = htmlspecialchars($user['name_valo']);
-        $rank_valo = htmlspecialchars($user['rank_valo']);
+        $username = htmlspecialchars($user['username'] ?? '');
+        $email = htmlspecialchars($user['email'] ?? '');
+        $name_valo = htmlspecialchars($user['name_valo'] ?? '');
+        $rank_valo = htmlspecialchars($user['rank_valo'] ?? '');
     }
 }
 ?>
-    <?php
-    if(isset($_GET['msg_erreur']))
-    {
-        ?>
-        <div class="alert alert-danger" role="alert">
-            <?= htmlspecialchars($_GET['msg_erreur']); ?>
-        </div>
-        <?php
-    } 
-    elseif(isset($_GET['msg_valid']))
-    {
-        ?>
-        <div class="alert alert-success" role="alert">
-            <?= htmlspecialchars($_GET['msg_valid']); ?>
-        </div>
-        <?php
-    } 
+<?php
+if(isset($_GET['msg_erreur']))
+{
     ?>
+    <div class="alert alert-danger" role="alert">
+        <?= htmlspecialchars($_GET['msg_erreur']); ?>
+    </div>
+    <?php
+} 
+elseif(isset($_GET['msg_valid']))
+{
+    ?>
+    <div class="alert alert-success" role="alert">
+        <?= htmlspecialchars($_GET['msg_valid']); ?>
+    </div>
+    <?php
+} 
+?>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
@@ -58,13 +58,13 @@ if(isset($infoUser)) {
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="name_valo">Pseudo Valorant</label>
-                                    <input type="name" class="form-control" id="name_valo" pattern="[\p{L}\s\-]+#\w{3,4}" title="Le pseudo valorant doit être sous cette forme : exemple#test" placeholder="exemple#test" name="name_valo" value="<?= $name_valo ?>">
+                                    <input type="text" class="form-control" id="name_valo" pattern="[\p{L}\s\-]+#\w{3,4}" title="Le pseudo valorant doit être sous cette forme : exemple#test" placeholder="exemple#test" name="name_valo" value="<?= $name_valo ?>">
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <label for="rank_valo">Rang Valorant</label>
-                                    <select class="form-control" id="rank_valo" name="rank_valo" placeholder="">
+                                    <select class="form-control" id="rank_valo" name="rank_valo">
                                         <option></option>
                                         <option value="<?= htmlspecialchars($rank_valo) ?>" disabled selected hidden><?= htmlspecialchars($rank_valo) ?></option>
                                         <option value="Fer">Fer</option>

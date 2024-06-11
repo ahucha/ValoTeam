@@ -32,7 +32,7 @@
                             <?php
                             foreach($listeCategories as $categorie)
                             {
-                                echo "<option value=\"" . htmlspecialchars($categorie['id_categorie']) . "\">" . htmlspecialchars($categorie['libelle_categorie']) . "</option>";
+                                echo "<option value=\"" . htmlspecialchars($categorie['id_categorie'], ENT_QUOTES, 'UTF-8') . "\">" . htmlspecialchars($categorie['libelle_categorie'], ENT_QUOTES, 'UTF-8') . "</option>";
                             }
                             ?>
                         </select>
@@ -42,16 +42,11 @@
                     <div class="mb-3">
                         <label for="places" class="form-label">Nombre de places</label>
                         <select class="form-select" id="places" name="nb_place" required>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
+                            <?php
+                            for ($i = 1; $i <= 10; $i++) {
+                                echo "<option value=\"" . htmlspecialchars($i, ENT_QUOTES, 'UTF-8') . "\">" . htmlspecialchars($i, ENT_QUOTES, 'UTF-8') . "</option>";
+                            }
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -62,7 +57,7 @@
             if(isset($_GET['msg_erreur']))
             {
               echo "<hr>";
-              echo "<p style='color: red; text-align: center;'>".htmlspecialchars($_GET['msg_erreur'])."</p>";
+              echo "<p style='color: red; text-align: center;'>" . htmlspecialchars($_GET['msg_erreur'], ENT_QUOTES, 'UTF-8') . "</p>";
             }
         ?>
     </div>

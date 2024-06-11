@@ -8,8 +8,8 @@ class DbAnnonce
         $sql = "SELECT id_categorie, libelle_categorie FROM categorie";
         $stmt = connectPdo::getObjPdo()->prepare($sql);
         $stmt->execute();
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+      ;
     } 
 
     public static function addAnnonce($titre, $description, $date, $heure, $nb_place, $id_categorie, $id_user) {
